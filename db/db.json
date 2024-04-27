@@ -7,10 +7,25 @@
       "email": "fe@gmail.com",
       "telefone": "(47)34899-8889",
       "admin": true
+    },
+    {
+      "id": "422c",
+      "nome": "Test 2",
+      "cpf": "1234232333",
+      "email": "test2@gmail.com",
+      "telefone": "03048934893",
+      "admin": false
+    },
+    {
+      "id": "2580",
+      "nome": "Leonardo Rodrigues",
+      "cpf": "988.342.123-30",
+      "email": "leonardo@gmail.com",
+      "telefone": "(47)9634-9854",
+      "admin": false
     }
   ],
-  "Atendimentos": [
-  ],
+  "Atendimentos": [],
   "Servicos": [
     {
       "id": "1",
@@ -24,14 +39,14 @@
       "nome": "Troca de Óleo",
       "valor": 150,
       "descricao": "Troque o Óleo do seu carro com uma equipe especializada",
-      "status": 0
+      "status": 1
     },
     {
       "id": "3",
       "nome": "Manutenção preventiva",
       "valor": 200,
       "descricao": "Equipe especializada pronta para cuidar do seu carro",
-      "status": 0
+      "status": 2
     },
     {
       "id": "4",
@@ -45,14 +60,14 @@
       "nome": "Balanceamento",
       "valor": 60,
       "descricao": "Equipe especializada pronta para cuidar do seu carro",
-      "status": 0
+      "status": 2
     },
     {
       "id": "6",
       "nome": "Alinhamento",
       "valor": 95,
       "descricao": "Equipe especializada pronta para cuidar do seu carro",
-      "status": 0
+      "status": 1
     },
     {
       "id": "7",
@@ -73,7 +88,7 @@
       "nome": "Instalação de Central Multimídia",
       "valor": 125,
       "descricao": "Equipe especializada pronta para cuidar do seu carro",
-      "status": 0
+      "status": 2
     },
     {
       "id": "10",
