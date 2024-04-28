@@ -21,7 +21,7 @@ const actions = {
       dispatch('user/setUserData', response, { root: true })
     }
   },
-  logout({ commit }) {
+  logout({ commit, dispatch }) {
     commit('SET_LOGOUT')
     dispatch('user/setUserData', {}, { root: true })
   },

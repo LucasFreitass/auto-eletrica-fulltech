@@ -12,7 +12,7 @@
       <v-toolbar-title>AUTO ELÉTRICA FULLTECH</v-toolbar-title>
       <v-spacer></v-spacer>
       <h4>{{ this.getUser.admin === true ? 'ADMIN' : this.getUser.nome }}</h4>
-      <v-btn icon>
+      <v-btn icon @click="logout">
         <v-icon>mdi-export</v-icon>
       </v-btn>
     </v-toolbar>
@@ -29,7 +29,12 @@
     data() {
       return {}
     },
-    methods: {},
+    methods: {
+      logout() {
+        this.$store.dispatch('auth/logout')
+        this.$router.push('/login')
+      }
+    },
     computed: {
       ...mapGetters({
         getUser: 'user/getUser',
