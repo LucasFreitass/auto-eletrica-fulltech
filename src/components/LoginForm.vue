@@ -1,20 +1,25 @@
 <template>
   <v-container class="custom-container">
     <v-card class="mx-auto" max-width="400">
-      <v-card-title class="primary">
-        <span class="headline">Login</span>
+      <v-img src="../assets/logo.png" class="logo"></v-img>
+
+      <v-card-title class="text-center">
+        <span class="headline">AUTO ELÉTRICA FULLTECH</span>
       </v-card-title>
 
       <v-card-text>
         <v-form @submit.prevent="login">
           <v-text-field
             v-model="cpf"
-            label="000.000.000-00"
+            label="CPF"
+            placeholder="000.000.000-00"
             outlined
             required
           ></v-text-field>
-          <v-btn @click="goToRoute" color="success">CADASTRAR</v-btn>
-          <v-btn type="submit" color="success">ENTRAR</v-btn>
+          <v-btn-toggle>
+            <v-btn @click="goToRoute" color="success">CADASTRAR</v-btn>
+            <v-btn type="submit" color="success">ENTRAR</v-btn>
+          </v-btn-toggle>
         </v-form>
 
         <v-alert v-if="errorMessage" type="error" outlined>
@@ -63,10 +68,25 @@
   .custom-container {
     background-image: url(../assets/background.png);
     background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .custom-card {
-    border-radius: 20px;
-    padding: 20px;
+  .logo {
+    width: 100px;
+    margin: auto;
+    display: block;
+    padding-bottom: 16px;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .v-btn-toggle {
+    display: flex;
+    justify-content: space-between;
   }
 </style>

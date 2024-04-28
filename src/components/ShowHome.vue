@@ -1,12 +1,11 @@
 <template>
-  <div>
+  <v-btn-toggle>
     <v-btn color="success" to="/solicitar-serviço">SOLICITAR SERVIÇO</v-btn>
     <v-btn color="success" to="/dashboard">LISTA DE SERVIÇOS</v-btn>
-
     <v-btn v-if="this.getUser.admin" color="success" to="/cadastro">
       CADASTRAR USUÁRIO
     </v-btn>
-  </div>
+  </v-btn-toggle>
 </template>
 
 <script>
@@ -30,4 +29,14 @@
   }
 </script>
 
-<style scoped></style>
+<style scoped>
+  .v-btn-toggle {
+    width: 100%;
+    margin: auto;
+  }
+
+  .v-btn {
+    flex: 1;
+    border-radius: 4px;
+  }
+</style>
