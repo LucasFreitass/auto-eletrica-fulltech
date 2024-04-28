@@ -27,10 +27,10 @@ export default {
     }
   },
   methods: {
-    login() {
+    async login() {
       if (this.cpf !== '') {
         this.errorMessage = ''
-        this.$store.dispatch('auth/login', this.cpf)
+        await this.$store.dispatch('auth/login', this.cpf)
         this.$router.push('/home')
       } else {
         this.errorMessage = 'digita um CPF ai filhão'

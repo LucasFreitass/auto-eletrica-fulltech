@@ -9,7 +9,7 @@ const state = {
       state.isLoggedIn = true
     },
     SET_LOGOUT(state) {
-        state.isLoggedIn = false
+      state.isLoggedIn = false
       },
   }
   
