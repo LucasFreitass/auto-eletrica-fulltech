@@ -44,6 +44,10 @@ const routes = [
     component: () => import('../views/EditarServicoView.vue'),
     meta: { requiresAuth: true },
   },
+  {
+    path: '*',
+    redirect: '/'
+  }
 ]
 
 const router = new VueRouter({
