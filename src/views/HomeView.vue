@@ -33,7 +33,7 @@
       logout() {
         this.$store.dispatch('auth/logout')
         this.$router.push('/login')
-      }
+      },
     },
     computed: {
       ...mapGetters({

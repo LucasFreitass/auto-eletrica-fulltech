@@ -37,8 +37,12 @@
       async login() {
         if (this.cpf !== '') {
           this.errorMessage = ''
-          await this.$store.dispatch('auth/login', this.cpf)
-          this.$router.push('/home')
+          const isLogged = await this.$store.dispatch('auth/login', this.cpf)
+          if (isLogged) {
+            this.$router.push('/home')
+          } else {
+            this.errorMessage = 'Voce precisa criar um cadastro'
+          }
         } else {
           this.errorMessage = 'digita um CPF ai filhão'
         }

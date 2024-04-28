@@ -19,7 +19,10 @@ const actions = {
     if (response !== false) {
       commit('SET_LOGIN')
       dispatch('user/setUserData', response, { root: true })
+
+      return true
     }
+    return false
   },
   logout({ commit, dispatch }) {
     commit('SET_LOGOUT')
