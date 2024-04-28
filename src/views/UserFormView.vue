@@ -1,13 +1,13 @@
 <template>
-  <login-form />
+  <user-form />
 </template>
 
 <script>
-  import LoginForm from '../components/LoginForm'
+  import UserForm from '../components/UserForm'
 
   export default {
     components: {
-      LoginForm,
+      UserForm,
     },
   }
 </script>

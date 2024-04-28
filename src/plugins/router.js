@@ -19,7 +19,7 @@ const routes = [
   {
     path: '/dashboard',
     name: 'dashboard',
-    component: () => import('../views/DashboardView.vue'),
+    component: () => import('../views/ServicesDashboardView.vue'),
     meta: { requiresAuth: true },
   },
   {
@@ -30,7 +30,7 @@ const routes = [
   {
     path: '/cadastro',
     name: 'cadastro',
-    component: () => import('../views/CadastroView.vue'),
+    component: () => import('../views/UserFormView.vue'),
   },
   {
     path: '/solicitar-serviço',
