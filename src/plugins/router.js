@@ -9,6 +9,12 @@ const routes = [
     path: '/',
     name: 'home',
     component: () => import('../views/HomeView.vue'),
+    meta: { requiresAuth: true },
+  },
+  {
+    path: '/help',
+    name: 'help',
+    component: () => import('../views/HelpView.vue'),
   },
   {
     path: '/dashboard',
@@ -25,12 +31,6 @@ const routes = [
     path: '/cadastro',
     name: 'cadastro',
     component: () => import('../views/CadastroView.vue'),
-  },
-  {
-    path: '/home',
-    name: 'newhome',
-    component: () => import('../views/NewHomeView.vue'),
-    meta: { requiresAuth: true },
   },
   {
     path: '/solicitar-serviço',
@@ -58,7 +58,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth) && !isUserLogged) {
     next({ name: 'login' })
   } else if (to.name === 'login' && isUserLogged) {
-    next({ name: 'newhome' })
+    next({ name: 'home' })
   } else {
     next()
   }
