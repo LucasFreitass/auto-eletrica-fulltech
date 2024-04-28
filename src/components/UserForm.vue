@@ -1,5 +1,5 @@
 <template>
-  <v-container class="custom-container">
+  <v-container fluid class="custom-container">
     <v-snackbar
       v-model="this.error"
       :value="true"
@@ -14,6 +14,9 @@
       <v-btn color="indigo" variant="text" @click="closeError">Close</v-btn>
     </v-snackbar>
     <v-card>
+      <v-btn icon @click="close">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
       <v-card-title>CADASTRO DE CLIENTE</v-card-title>
       <v-card-text>
         <v-form ref="form" @submit.prevent="addUser">
@@ -90,6 +93,9 @@
       closeError() {
         this.error = false
       },
+      async close() {
+        await this.$router.push('/')
+      },
     },
     computed: {
       ...mapGetters({
@@ -111,7 +117,8 @@
   }
 
   .v-card {
-    max-width: 600px;
+    min-width: 400px;
+    border-radius: 20px;
     margin: auto;
     overflow: hidden;
   }

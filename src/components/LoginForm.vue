@@ -1,5 +1,5 @@
 <template>
-  <v-container class="custom-container">
+  <v-container fluid class="custom-container">
     <v-card class="mx-auto" max-width="400">
       <v-img src="../assets/logo.png" class="logo"></v-img>
 
