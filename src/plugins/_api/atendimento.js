@@ -8,18 +8,19 @@ export default {
   },
   GetById: function (id) {
     return new Promise((resolve, reject) => {
-      axios.get(`Atendimentos/${id}`).then((res) => resolve(res.data))
-      .catch(() => reject('Atendimento não encontrado'))
+      axios
+        .get(`Atendimentos/${id}`)
+        .then((res) => resolve(res.data))
+        .catch(() => reject('Atendimento não encontrado'))
     })
   },
   GetAllByUser: function (id) {
     return new Promise((resolve) => {
       axios.get('Atendimentos').then((res) => {
-        const atendimentos = res.data.filter(at => at.idUsuario === id)
+        const atendimentos = res.data.filter((at) => at.idUsuario === id)
         resolve(atendimentos)
       })
     })
-
   },
   Post: function (data) {
     return new Promise((resolve) => {
@@ -40,5 +41,5 @@ export default {
     return new Promise((resolve) => {
       axios.delete(`Atendimentos/${id}`).then(() => resolve(id))
     })
-  }
+  },
 }

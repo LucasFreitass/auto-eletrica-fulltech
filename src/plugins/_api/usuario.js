@@ -8,11 +8,13 @@ export default {
   },
   GetById: function (id) {
     return new Promise((resolve, reject) => {
-      axios.get(`Usuario/${id}`).then((res) => resolve(res.data))
-      .catch(() => reject('Usuário não encontrado'))
+      axios
+        .get(`Usuario/${id}`)
+        .then((res) => resolve(res.data))
+        .catch(() => reject('Usuário não encontrado'))
     })
   },
-  GetByCpf: function (cpf){
+  GetByCpf: function (cpf) {
     return new Promise((resolve) => {
       axios.get('Usuario').then((res) => {
         const user = res.data.find((user) => user.cpf === cpf)

@@ -7,12 +7,10 @@ import VuexPersist from 'vuex-persist'
 
 Vue.use(Vuex)
 
-const vuexPersist = new VuexPersist(
-  {
-    key: 'Fulltech',
-    storage: window.localStorage
-  }
-)
+const vuexPersist = new VuexPersist({
+  key: 'Fulltech',
+  storage: window.localStorage,
+})
 
 export default new Vuex.Store({
   state: {},
@@ -22,9 +20,7 @@ export default new Vuex.Store({
   modules: {
     auth,
     user,
-    services
+    services,
   },
-  plugins: [
-    vuexPersist.plugin
-  ]
+  plugins: [vuexPersist.plugin],
 })

@@ -3,7 +3,7 @@ import Servico from './servico'
 import Atendimento from './atendimento'
 
 export default {
-    Usuario,
-    Servico,
-    Atendimento
+  Usuario,
+  Servico,
+  Atendimento,
 }

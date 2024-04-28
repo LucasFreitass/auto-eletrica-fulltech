@@ -1,13 +1,13 @@
 import api from '../_api'
 
 const state = {
-  data: {}
+  data: {},
 }
 
 const mutations = {
   SET_USER_DATA(state, userData) {
     state.data = userData
-  }
+  },
 }
 
 const actions = {
@@ -21,24 +21,24 @@ const actions = {
         cpf: user.cpf,
         email: user.email.toLowerCase().trim(),
         telefone: user.telefone.trim(),
-        admin: false
+        admin: false,
       }
 
       await api.Usuario.Post(sanitizedUser)
     } catch (error) {
       console.error('Failed to add user:', error)
     }
-  }
+  },
 }
-  
-  const getters = {
-    getUser: state => state.data
-  }
-  
-  export default {
-    namespaced: true,
-    state,
-    mutations,
-    actions,
-    getters
-  }
+
+const getters = {
+  getUser: (state) => state.data,
+}
+
+export default {
+  namespaced: true,
+  state,
+  mutations,
+  actions,
+  getters,
+}

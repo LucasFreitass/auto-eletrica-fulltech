@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import HelloPeople from '../components/HelloPeople'
+  import HelloPeople from '../components/HelloPeople'
 
-export default {
-  components: {
-    HelloPeople,
-  },
-}
+  export default {
+    components: {
+      HelloPeople,
+    },
+  }
 </script>

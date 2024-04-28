@@ -8,44 +8,42 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('../views/HomeView.vue')
+    component: () => import('../views/HomeView.vue'),
   },
   {
     path: '/dashboard',
     name: 'dashboard',
     component: () => import('../views/DashboardView.vue'),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
   },
   {
     path: '/login',
     name: 'login',
-    component: () => import('../views/LoginView.vue')
-
+    component: () => import('../views/LoginView.vue'),
   },
   {
     path: '/cadastro',
     name: 'cadastro',
-    component: () => import('../views/CadastroView.vue')
+    component: () => import('../views/CadastroView.vue'),
   },
   {
     path: '/home',
     name: 'newhome',
     component: () => import('../views/NewHomeView.vue'),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
   },
   {
     path: '/solicitar-serviço',
     name: 'solicitar-serviço',
     component: () => import('../views/SolicitarServicoView.vue'),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true },
   },
   {
     path: '/editar-serviços',
     name: 'editar-serviços',
     component: () => import('../views/EditarServicoView.vue'),
-    meta: { requiresAuth: true }
-  }
-
+    meta: { requiresAuth: true },
+  },
 ]
 
 const router = new VueRouter({
@@ -57,7 +55,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const isUserLogged = store.getters['auth/isLoggedIn']
 
-  if (to.matched.some(record => record.meta.requiresAuth) && !isUserLogged) {
+  if (to.matched.some((record) => record.meta.requiresAuth) && !isUserLogged) {
     next({ name: 'login' })
   } else if (to.name === 'login' && isUserLogged) {
     next({ name: 'newhome' })
