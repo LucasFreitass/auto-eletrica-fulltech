@@ -9,19 +9,19 @@
       "admin": true
     },
     {
-      "id": "422c",
-      "nome": "Test 2",
-      "cpf": "1234232333",
-      "email": "test2@gmail.com",
-      "telefone": "03048934893",
-      "admin": false
-    },
-    {
       "id": "2580",
       "nome": "Leonardo Rodrigues",
       "cpf": "988.342.123-30",
       "email": "leonardo@gmail.com",
       "telefone": "(47)9634-9854",
+      "admin": false
+    },
+    {
+      "id": "bb44",
+      "nome": "Aline Rodrigues",
+      "cpf": "322.212.312-34",
+      "email": "aline_rodi@gmail.com",
+      "telefone": "(47)34540967",
       "admin": false
     }
   ],

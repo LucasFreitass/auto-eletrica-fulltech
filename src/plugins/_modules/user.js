@@ -21,10 +21,15 @@ const actions = {
         cpf: user.cpf,
         email: user.email.toLowerCase().trim(),
         telefone: user.telefone.trim(),
-        admin: false,
+        admin: user.admin,
       }
+      const isUserExist = await api.Usuario.GetByCpf(user.cpf)
+      if (!isUserExist) {
+        await api.Usuario.Post(sanitizedUser)
 
-      await api.Usuario.Post(sanitizedUser)
+        return true
+      }
+      return false
     } catch (error) {
       console.error('Failed to add user:', error)
     }

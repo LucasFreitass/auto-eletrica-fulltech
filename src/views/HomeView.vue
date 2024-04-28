@@ -11,7 +11,7 @@
       />
       <v-toolbar-title>AUTO ELÉTRICA FULLTECH</v-toolbar-title>
       <v-spacer></v-spacer>
-      <h4>{{ this.getUser.admin === true ? 'ADMIN' : this.getUser.nome }}</h4>
+      <h4>{{ this.getUser.admin ? 'ADMIN' : this.getUser.nome }}</h4>
       <v-btn icon @click="logout">
         <v-icon>mdi-export</v-icon>
       </v-btn>
@@ -19,6 +19,10 @@
 
     <v-btn color="success" to="/solicitar-serviço">SOLICITAR SERVIÇO</v-btn>
     <v-btn color="success" to="/dashboard">LISTA DE SERVIÇOS</v-btn>
+
+    <v-btn v-if="this.getUser.admin" color="success" to="/cadastro">
+      CADASTRAR USUÁRIO
+    </v-btn>
   </div>
 </template>
 
