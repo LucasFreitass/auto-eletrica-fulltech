@@ -33,18 +33,6 @@ const routes = [
     component: () => import('../views/UserFormView.vue'),
   },
   {
-    path: '/solicitar-serviço',
-    name: 'solicitar-serviço',
-    component: () => import('../views/SolicitarServicoView.vue'),
-    meta: { requiresAuth: true },
-  },
-  {
-    path: '/editar-serviços',
-    name: 'editar-serviços',
-    component: () => import('../views/EditarServicoView.vue'),
-    meta: { requiresAuth: true },
-  },
-  {
     path: '/appointments',
     name: 'appointments',
     component: () => import('../views/ListAppointmentsView.vue'),
