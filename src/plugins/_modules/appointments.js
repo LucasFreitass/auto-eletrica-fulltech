@@ -11,32 +11,66 @@ const mutations = {
 }
 
 const actions = {
-  async fetchAppointments({ commit }, { isAdmin, userId }) {
+  async fetchAppointments({ commit, dispatch }, { isAdmin, userId }) {
     try {
-      const response = isAdmin
+      const appointments = isAdmin
         ? await api.Atendimento.GetAll()
         : await api.Atendimento.GetAllByUser(userId)
 
-      commit('SET_APPOINTMENTS', response)
+      const services = await dispatch('services/fetchServices', null, {
+        root: true,
+      })
+      const servicesDict = services.reduce((acc, service) => {
+        acc[service.id] = service
+        return acc
+      }, {})
+
+      appointments.forEach((appointment) => {
+        appointment.servicos = appointment.servicos.map((servico) => {
+          const foundService = servicesDict[servico.id]
+          if (foundService) {
+            return { ...foundService, ...servico }
+          }
+
+          return servico
+        })
+      })
+
+      commit('SET_APPOINTMENTS', appointments)
     } catch (error) {
-      console.log('There was an error:', error.response)
+      console.log('There was an error:', error)
     }
   },
   async deleteAppointment({ dispatch }, { appointmentId, isAdmin, userId }) {
     if (!isAdmin) {
-      return 
+      return
+    }
+    try {
+      await api.Atendimento.Delete(appointmentId)
+      await dispatch('fetchAppointments', { isAdmin, userId })
+    } catch (error) {
+      console.log('There was an error:', error)
+    }
+  },
+  async updateAppointment(
+    { dispatch },
+    { appointmentId, isAdmin, userId, newData }
+  ) {
+    if (!isAdmin) {
+      return
     }
 
-    await api.Atendimento.Delete(appointmentId)
-    await dispatch('fetchAppointments', { isAdmin, userId })
-  },
-  async updateAppointment({ dispatch }, { appointmentId, isAdmin, userId, newData }) {
-    if (!isAdmin) {
-      return 
-    }
-    
     await api.Atendimento.Patch(appointmentId, newData)
     await dispatch('fetchAppointments', { isAdmin, userId })
+  },
+  async createAppointment({ dispatch }, { atendimento, veiculo, user }) {
+    atendimento.servicos = atendimento.servicos.map((id) => ({ id, status: 0 }))
+    atendimento.veiculo = veiculo
+    atendimento.idUsuario = user.id
+    atendimento.status = 0
+
+    const result = await api.Atendimento.Post(atendimento)
+    return result
   },
 }
 

@@ -34,6 +34,13 @@ const actions = {
       console.error('Failed to add user:', error)
     }
   },
+  async findByCPF({}, { cpf }) {
+    const user = await api.Usuario.GetByCpf(cpf)
+    if (!user) {
+      return undefined
+    }
+    return user
+  },
 }
 
 const getters = {

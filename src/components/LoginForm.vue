@@ -49,7 +49,7 @@
             this.errorMessage = 'Voce precisa criar um cadastro'
           }
         } else {
-          this.errorMessage = 'digita um CPF ai filhão'
+          this.errorMessage = 'Digite um CPF válido'
         }
       },
       goToRoute() {

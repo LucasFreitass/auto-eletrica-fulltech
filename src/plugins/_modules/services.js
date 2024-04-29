@@ -11,14 +11,16 @@ const mutations = {
 }
 
 const actions = {
-  fetchServices({ commit }) {
-    return api.Servico.GetAll()
-      .then((data) => {
-        commit('SET_SERVICES', data)
-      })
-      .catch((error) => {
-        console.log('There was an error:', error.response)
-      })
+  async fetchServices({ commit }) {
+    try {
+      const result = await api.Servico.GetAll()
+
+      commit('SET_SERVICES', result)
+
+      return result
+    } catch (error) {
+      console.log('There was an error:', error)
+    }
   },
 }
 
