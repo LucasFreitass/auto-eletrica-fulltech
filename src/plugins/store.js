@@ -4,6 +4,7 @@ import auth from './_modules/auth'
 import user from './_modules/user'
 import services from './_modules/services'
 import VuexPersist from 'vuex-persist'
+import appointments from './_modules/appointments'
 
 Vue.use(Vuex)
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
     auth,
     user,
     services,
+    appointments,
   },
   plugins: [vuexPersist.plugin],
 })

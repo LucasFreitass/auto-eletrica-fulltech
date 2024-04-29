@@ -45,6 +45,12 @@ const routes = [
     meta: { requiresAuth: true },
   },
   {
+    path: '/appointments',
+    name: 'appointments',
+    component: () => import('../views/ListAppointmentsView.vue'),
+    meta: { requiresAuth: true },
+  },
+  {
     path: '*',
     redirect: '/',
   },
