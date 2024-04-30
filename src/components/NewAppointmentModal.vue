@@ -3,6 +3,7 @@
     <v-card>
       <v-card-title>
         <span class="text-h5">Novo atendimento</span>
+        <div class="custom-spacer"></div>
         <v-btn icon @click.stop="show = false">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -26,6 +27,7 @@
                   placeholder="000.000.000-00"
                   outlined
                   required
+                  :readonly="currentUser && !currentUser.admin"
                 ></v-text-field>
               </v-form>
             </v-card-text>
@@ -178,7 +180,8 @@
       return this.defaultData()
     },
     mounted() {
-      this.fetchServices()
+      this.fetchServices(),
+      this.setCpf()
     },
     methods: {
       defaultData() {
@@ -245,9 +248,15 @@
       resetData() {
         Object.assign(this.$data, this.defaultData())
       },
+      setCpf() {
+        if (this.currentUser && !this.currentUser.admin) {
+          this.cpf = this.currentUser.cpf
+        }
+      }
     },
     props: {
       value: Boolean,
+      currentUser: Object
     },
     computed: {
       show: {
@@ -283,3 +292,9 @@
     },
   }
 </script>
+
+<style scoped>
+  .custom-spacer {
+    width: 500px;
+  }
+</style>
