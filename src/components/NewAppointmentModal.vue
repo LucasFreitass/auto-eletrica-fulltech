@@ -25,6 +25,8 @@
                   v-model="cpf"
                   label="CPF"
                   placeholder="000.000.000-00"
+                  v-mask="'###.###.###-##'"
+                  @keydown="allowOnlyNumbers"
                   outlined
                   required
                   :readonly="currentUser && !currentUser.admin"
@@ -260,6 +262,15 @@
       setCpf() {
         if (this.currentUser && !this.currentUser.admin) {
           this.cpf = this.currentUser.cpf
+        }
+      },
+      allowOnlyNumbers(event) {
+        if (
+          !/[0-9]/.test(event.key) &&
+          event.key !== 'Backspace' &&
+          event.key !== 'Tab'
+        ) {
+          event.preventDefault()
         }
       },
     },

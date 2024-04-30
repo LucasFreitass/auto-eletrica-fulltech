@@ -9,46 +9,6 @@
       "admin": true
     },
     {
-      "id": "2580",
-      "nome": "Leonardo Rodrigues",
-      "cpf": "988.342.123-30",
-      "email": "leonardo@gmail.com",
-      "telefone": "(47)9634-9854",
-      "admin": false
-    },
-    {
-      "id": "bb44",
-      "nome": "Aline Rodrigues",
-      "cpf": "322.212.312-34",
-      "email": "aline_rodi@gmail.com",
-      "telefone": "(47)34540967",
-      "admin": false
-    },
-    {
-      "id": "eea0",
-      "nome": "Karin Freitas",
-      "cpf": "821.449.123.68",
-      "email": "karin_freitas@gmail.com",
-      "telefone": "(34) 3212-1234",
-      "admin": false
-    },
-    {
-      "id": "4a20",
-      "nome": "Kamyla",
-      "cpf": "123.123.123-10",
-      "email": "kamyla@gmail.com",
-      "telefone": "(12) 1234-3232",
-      "admin": false
-    },
-    {
-      "id": "1b64",
-      "nome": "Marcos pires",
-      "cpf": "1021232312",
-      "email": "mamsm",
-      "telefone": "221231",
-      "admin": false
-    },
-    {
       "id": "29b2",
       "nome": "Lucas Eduardo",
       "cpf": "099.543.949-40",
@@ -59,128 +19,19 @@
   ],
   "Atendimentos": [
     {
-      "id": "bf04",
-      "data": "2024-07-17",
+      "id": "ac63",
+      "data": "2024-04-30",
       "servicos": [
         {
-          "id": "1",
-          "nome": "Troca do Pneu",
-          "valor": 20,
-          "descricao": "Troque seu pneu com maior segurança e tranquilidade",
-          "status": 2
-        },
-        {
-          "id": "3",
-          "nome": "Manutenção preventiva",
-          "valor": 200,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "id": "2",
           "status": 0
-        },
-        {
-          "id": "10",
-          "nome": "Instalação de Alarme e Travas Elétricas",
-          "valor": 530,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 1
-        },
-        {
-          "id": "4",
-          "nome": "Cambagem",
-          "valor": 80,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 0
-        },
-        {
-          "id": "7",
-          "nome": "Substituição de velas de ignição",
-          "valor": 160,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 2
-        },
-        {
-          "id": "12",
-          "nome": "Instalação de rack",
-          "valor": 380,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 2
-        },
-        {
-          "id": "9",
-          "nome": "Instalação de Central Multimídia",
-          "valor": 125,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 2
         }
       ],
       "veiculo": {
         "modelo": "PALIO",
-        "placa": "QIJ-1212",
+        "placa": "QIJ-1232",
         "cor": "BRANCO",
-        "ano": "2025"
-      },
-      "idUsuario": "2580",
-      "status": 0
-    },
-    {
-      "id": "6e72",
-      "data": "2024-04-30",
-      "servicos": [
-        {
-          "id": "11",
-          "nome": "Troca de bateria",
-          "valor": 230,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 2
-        },
-        {
-          "id": "9",
-          "nome": "Instalação de Central Multimídia",
-          "valor": 125,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 2
-        }
-      ],
-      "veiculo": {
-        "modelo": "CORSA",
-        "placa": "WER-9876",
-        "cor": "ROSA",
-        "ano": "1995"
-      },
-      "idUsuario": "eda2",
-      "status": 2
-    },
-    {
-      "id": "9d03",
-      "data": "2024-05-10",
-      "servicos": [
-        {
-          "id": "7",
-          "status": 0
-        }
-      ],
-      "veiculo": {
-        "modelo": "CAMARO",
-        "placa": "CAR-0662",
-        "cor": "AMARELO",
-        "ano": "2014"
-      },
-      "idUsuario": "2580",
-      "status": 0
-    },
-    {
-      "id": "732c",
-      "data": "2024-04-30",
-      "servicos": [
-        {
-          "id": "11",
-          "status": 0
-        }
-      ],
-      "veiculo": {
-        "modelo": "BYD SEAL",
-        "placa": "LKO-1120",
-        "cor": "AZUL MARINHO",
-        "ano": "2024"
+        "ano": "2022"
       },
       "idUsuario": "29b2",
       "status": 0
