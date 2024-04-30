@@ -47,51 +47,17 @@
       "email": "mamsm",
       "telefone": "221231",
       "admin": false
+    },
+    {
+      "id": "29b2",
+      "nome": "Lucas Eduardo",
+      "cpf": "099.543.949-40",
+      "email": "lucas_rfreitas@outlook.com.br",
+      "telefone": "(47) 99746-8455",
+      "admin": false
     }
   ],
   "Atendimentos": [
-    {
-      "id": "81d0",
-      "data": "2024-04-23",
-      "servicos": [
-        {
-          "id": "3",
-          "nome": "Manutenção preventiva",
-          "valor": 200,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 2
-        },
-        {
-          "id": "4",
-          "nome": "Cambagem",
-          "valor": 80,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 0
-        },
-        {
-          "id": "5",
-          "nome": "Balanceamento",
-          "valor": 60,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 0
-        },
-        {
-          "id": "2",
-          "nome": "Troca de Óleo",
-          "valor": 150,
-          "descricao": "Troque o Óleo do seu carro com uma equipe especializada",
-          "status": 0
-        }
-      ],
-      "veiculo": {
-        "modelo": "TESTE",
-        "placa": "TES-1111",
-        "cor": "TESTE",
-        "ano": "1996"
-      },
-      "idUsuario": "eda2",
-      "status": 1
-    },
     {
       "id": "bf04",
       "data": "2024-07-17",
@@ -199,6 +165,24 @@
         "ano": "2014"
       },
       "idUsuario": "2580",
+      "status": 0
+    },
+    {
+      "id": "732c",
+      "data": "2024-04-30",
+      "servicos": [
+        {
+          "id": "11",
+          "status": 0
+        }
+      ],
+      "veiculo": {
+        "modelo": "BYD SEAL",
+        "placa": "LKO-1120",
+        "cor": "AZUL MARINHO",
+        "ano": "2024"
+      },
+      "idUsuario": "29b2",
       "status": 0
     }
   ],

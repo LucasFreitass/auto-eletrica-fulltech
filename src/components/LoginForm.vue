@@ -16,14 +16,20 @@
             v-model="cpf"
             label="CPF"
             placeholder="000.000.000-00"
+            v-mask="'###.###.###-##'"
+            @keydown="allowOnlyNumbers"
             outlined
             required
+            :rules="cpfRules"
           ></v-text-field>
-          <v-btn-toggle>
-            <v-btn @click="goToRoute" color="success">CADASTRAR</v-btn>
-            <div class="custom-spacer"></div>
-            <v-btn type="submit" color="success">ENTRAR</v-btn>
-          </v-btn-toggle>
+          <v-row class="d-flex justify-space-between">
+            <v-btn @click="goToRoute" color="success" class="btn-custom">
+              CADASTRAR
+            </v-btn>
+            <v-btn type="submit" color="success" class="btn-custom">
+              ENTRAR
+            </v-btn>
+          </v-row>
         </v-form>
         <v-col class="justify-center">
           <v-alert v-if="errorMessage" type="error" outlined>
@@ -41,6 +47,12 @@
       return {
         cpf: '',
         errorMessage: '',
+        cpfRules: [
+          (v) => !!v || 'O CPF é obrigatório',
+          (v) =>
+            /^(?:\d{3}\.){2}\d{3}-\d{2}$/.test(v) ||
+            'Formato de CPF inválido. Use o formato xxx.xxx.xxx-xx',
+        ],
       }
     },
     methods: {
@@ -61,6 +73,15 @@
       goToRoute() {
         this.$router.push('/cadastro')
       },
+      allowOnlyNumbers(event) {
+        if (
+          !/[0-9]/.test(event.key) &&
+          event.key !== 'Backspace' &&
+          event.key !== 'Tab'
+        ) {
+          event.preventDefault()
+        }
+      },
     },
     computed: {
       isLoggedIn() {
@@ -71,10 +92,6 @@
 </script>
 
 <style scoped>
-  .custom-spacer {
-    width: 20px;
-  }
-
   .custom-container {
     background-image: url(../assets/background.png);
     background-size: cover;
@@ -90,13 +107,8 @@
     display: block;
   }
 
-  .text-center {
-    text-align: center;
-  }
-
-  .v-btn-toggle {
-    display: flex;
-    justify-content: space-between;
+  .btn-custom {
+    margin: 12px;
   }
 
   .v-card {

@@ -252,7 +252,10 @@
         } else console.log('ERROR')
       },
       resetData() {
-        Object.assign(this.$data, this.defaultData())
+        Object.assign(this.$data, this.defaultData(), {
+          services: this.services,
+        })
+        this.setCpf()
       },
       setCpf() {
         if (this.currentUser && !this.currentUser.admin) {

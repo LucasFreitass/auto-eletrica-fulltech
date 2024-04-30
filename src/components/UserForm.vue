@@ -1,8 +1,10 @@
 <template>
   <v-container fluid class="custom-container">
-    <v-card>
-      <v-row class="justify-center">
+    <v-card class="nx-auto">
+      <v-row class="justify-space-between align-center">
+        <div></div>
         <v-card-title>CADASTRO DE CLIENTE</v-card-title>
+
         <v-btn icon @click="close">
           <v-icon>mdi-close-circle-outline</v-icon>
         </v-btn>
@@ -21,6 +23,8 @@
             v-model="User.cpf"
             label="CPF"
             placeholder="000.000.000-00"
+            v-mask="'###.###.###-##'"
+            @keydown="allowOnlyNumbers"
             outlined
             required
             :rules="cpfRules"
@@ -36,7 +40,9 @@
           <v-text-field
             v-model="User.telefone"
             label="Telefone"
-            placeholder="(99) 9999-9999"
+            placeholder="(99) 99999-9999"
+            v-mask="'(##) #####-####'"
+            @keydown="allowOnlyNumbers"
             outlined
             required
             :rules="telefoneRules"
@@ -48,7 +54,9 @@
             outlined
           ></v-checkbox>
 
-          <v-btn type="submit" color="success">CADASTRAR</v-btn>
+          <v-btn class="custom-button" type="submit" color="success">
+            CADASTRAR
+          </v-btn>
         </v-form>
         <v-alert v-if="error" type="error" outlined>
           {{ error }}
@@ -71,11 +79,26 @@
           telefone: '',
           admin: false,
         },
-        nameRules: [(v) => !!v || 'O nome é obrigatório'],
-        cpfRules: [(v) => !!v || 'O CPF é obrigatório'],
-        emailRules: [(v) => !!v || 'O email é obrigatório'],
-        telefoneRules: [(v) => !!v || 'O telefone é obrigatório'],
+
         error: '',
+
+        nameRules: [(v) => !!v || 'O nome é obrigatório'],
+        cpfRules: [
+          (v) => !!v || 'O CPF é obrigatório',
+          (v) =>
+            /^(?:\d{3}\.){2}\d{3}-\d{2}$/.test(v) ||
+            'Formato de CPF inválido. Use o formato xxx.xxx.xxx-xx',
+        ],
+        emailRules: [
+          (v) => !!v || 'O email é obrigatório',
+          (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'E-mail inválido',
+        ],
+        telefoneRules: [
+          (v) => !!v || 'O telefone é obrigatório',
+          (v) =>
+            /^\(\d{2}\) \d{4,5}-\d{4}$/.test(v) ||
+            'Formato de telefone inválido. Use o formato (xx) xxxx-xxxx ou (xx) xxxxx-xxxx',
+        ],
       }
     },
     methods: {
@@ -101,8 +124,19 @@
         this.$refs.form.resetValidation()
       },
       async close() {
-        await this.$router.push('/')
-        this.$refs.form.resetValidation()
+        await this.$router.push('/login')
+        if (!!this.$refs.form) {
+          this.$refs.form.resetValidation()
+        }
+      },
+      allowOnlyNumbers(event) {
+        if (
+          !/[0-9]/.test(event.key) &&
+          event.key !== 'Backspace' &&
+          event.key !== 'Tab'
+        ) {
+          event.preventDefault()
+        }
       },
     },
     computed: {
@@ -125,10 +159,9 @@
   }
 
   .v-card {
-    min-width: 400px;
+    min-width: 500px;
     border-radius: 20px;
-    margin: auto;
-    overflow: hidden;
+    padding: 40px;
   }
 
   .v-card-title {
@@ -145,9 +178,7 @@
     margin-bottom: 10px;
   }
 
-  .v-btn {
+  .custom-button {
     width: 100%;
-    border-radius: 4px;
-    margin-top: 20px;
   }
 </style>

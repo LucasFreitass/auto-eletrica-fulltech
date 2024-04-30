@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { VueMaskDirective } from 'v-mask'
 import App from './App.vue'
 import router from './plugins/router'
 import store from './plugins/store'
@@ -8,6 +9,7 @@ import './plugins/axios'
 
 Vue.prototype.$api = api
 Vue.config.productionTip = false
+Vue.directive('mask', VueMaskDirective)
 
 new Vue({
   router,

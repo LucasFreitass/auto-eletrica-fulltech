@@ -11,22 +11,41 @@
     <v-data-table
       dark
       :headers="headers"
-      :items="getAppointments"
+      :items="filteredAppointments"
       :items-per-page="5"
       class="elevation-1 custom-table"
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <div class="custom-spacer"></div>
-          <v-btn outlined icon color="green" @click="openNewAppointmentModal">
-            <v-icon>mdi-plus</v-icon>
-          </v-btn>
-          <div class="custom-spacer"></div>
-          <v-btn outlined icon @click="reloadPage">
-            <v-icon>mdi-reload</v-icon>
-          </v-btn>
-          <div class="custom-space-back"></div>
-          <v-btn outlined to="/">VOLTAR</v-btn>
+          <v-row class="justify-space-between">
+            <v-col cols="3">
+              <v-btn
+                outlined
+                icon
+                color="green"
+                @click="openNewAppointmentModal"
+                class="custom-spacer"
+              >
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+              <v-btn outlined icon @click="reloadPage" class="custom-spacer">
+                <v-icon>mdi-reload</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col cols="6">
+              <v-text-field
+                v-model="search"
+                append-icon="mdi-magnify"
+                label="Search"
+                single-line
+                hide-details
+                class="mr-3"
+              ></v-text-field>
+            </v-col>
+            <v-col cols="3" class="d-flex justify-end">
+              <v-btn outlined to="/">VOLTAR</v-btn>
+            </v-col>
+          </v-row>
         </v-toolbar>
       </template>
       <template v-slot:[`item.servicos`]="{ item }">
@@ -69,6 +88,7 @@
         showEditAppointmentModal: false,
         statusServicesIcons,
         selectedAppointment: {},
+        search: '',
       }
     },
     components: {
@@ -125,6 +145,24 @@
       ...mapGetters({
         getAppointments: 'appointments/getAppointments',
       }),
+      filteredAppointments() {
+        if (!this.search.trim()) {
+          return this.getAppointments
+        }
+        return this.getAppointments.filter((item) => {
+          return Object.keys(item).some((key) => {
+            const value = item[key]
+            if (typeof value === 'object') {
+              return JSON.stringify(value)
+                .toLowerCase()
+                .includes(this.search.toLowerCase())
+            }
+            return String(value)
+              .toLowerCase()
+              .includes(this.search.toLowerCase())
+          })
+        })
+      },
     },
   }
 </script>
@@ -155,11 +193,7 @@
   }
 
   .custom-spacer {
-    width: 20px;
-  }
-
-  .custom-space-back {
-    width: 800px;
+    margin: 0 16px;
   }
 
   .custom-container {

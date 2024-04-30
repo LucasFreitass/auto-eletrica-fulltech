@@ -3,6 +3,7 @@
     <v-card>
       <v-card-title>
         <span class="text-h5">Editar Serviços</span>
+        <v-spacer></v-spacer>
         <v-btn icon @click.stop="show = false">
           <v-icon>mdi-close</v-icon>
         </v-btn>
