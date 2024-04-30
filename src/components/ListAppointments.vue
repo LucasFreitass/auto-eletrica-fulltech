@@ -1,23 +1,25 @@
 <template>
-  <v-container>
+  <v-container class="custom-container">
     <NewAppointmentModal v-model="showNewAppointmentModal" />
     <EditAppointmentModal
       v-model="showEditAppointmentModal"
       :appointment.sync="selectedAppointment"
     />
     <v-data-table
+      dark
       :headers="headers"
       :items="getAppointments"
       :items-per-page="5"
-      class="elevation-1"
+      class="elevation-1 custom-table"
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-btn icon color="green" @click="openNewAppointmentModal">
+          <div class="custom-spacer"></div>
+          <v-btn outlined icon color="green" @click="openNewAppointmentModal">
             <v-icon>mdi-plus</v-icon>
           </v-btn>
-
-          <v-btn icon @click="reloadPage">
+          <div class="custom-spacer"></div>
+          <v-btn outlined icon @click="reloadPage">
             <v-icon>mdi-reload</v-icon>
           </v-btn>
         </v-toolbar>
@@ -121,3 +123,43 @@
     },
   }
 </script>
+
+<style scoped>
+::v-deep .v-data-table th {
+  background-color: #757070;
+}
+::v-deep .v-data-table .v-data-table__wrapper table tr {
+  background-color: #757070;
+}
+::v-deep .v-toolbar__content {
+  background-color: #757070;
+}
+::v-deep .v-data-footer {
+  background-color: #757070;
+}
+
+.custom-table {
+  padding: 32px 16px;
+}
+
+::v-deep .custom-table .v-data-table-header,
+::v-deep .custom-table .v-data-table__wrapper table tbody tr td,
+::v-deep .custom-table .v-data-footer {
+  color: white; 
+  font-weight: bold;
+}
+
+.custom-spacer {
+  width: 20px;
+}
+
+.custom-container {
+  padding-top: 30px;
+}
+
+.theme--dark.v-data-table {
+    background-color: #757070;
+     
+}
+
+</style>

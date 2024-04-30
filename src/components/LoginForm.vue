@@ -1,12 +1,15 @@
 <template>
   <v-container fluid class="custom-container">
-    <v-card class="mx-auto" max-width="400">
+    <v-card >
+      <v-col class="justify-center">
       <v-img src="../assets/logo.png" class="logo"></v-img>
+    </v-col>
 
+    <v-col class="justify-center">
       <v-card-title class="text-center">
         <span class="headline">AUTO ELÉTRICA FULLTECH</span>
       </v-card-title>
-
+    </v-col>
       <v-card-text>
         <v-form @submit.prevent="login">
           <v-text-field
@@ -18,13 +21,16 @@
           ></v-text-field>
           <v-btn-toggle>
             <v-btn @click="goToRoute" color="success">CADASTRAR</v-btn>
+            <div class="custom-spacer"></div>
             <v-btn type="submit" color="success">ENTRAR</v-btn>
           </v-btn-toggle>
         </v-form>
-
+        <v-col class="justify-center">
         <v-alert v-if="errorMessage" type="error" outlined>
+          
           {{ errorMessage }}
         </v-alert>
+      </v-col>
       </v-card-text>
     </v-card>
   </v-container>
@@ -46,7 +52,7 @@
           if (isLogged) {
             this.$router.push('/home')
           } else {
-            this.errorMessage = 'Voce precisa criar um cadastro'
+            this.errorMessage = 'CPF não encontrado. Por favor, crie um cadastro.'
           }
         } else {
           this.errorMessage = 'Digite um CPF válido'
@@ -65,6 +71,11 @@
 </script>
 
 <style scoped>
+
+  .custom-spacer {
+    width: 20px;
+  }
+
   .custom-container {
     background-image: url(../assets/background.png);
     background-size: cover;
@@ -75,10 +86,10 @@
   }
 
   .logo {
-    width: 100px;
+    width: 70px;
     margin: auto;
     display: block;
-    padding-bottom: 16px;
+   
   }
 
   .text-center {
@@ -88,5 +99,14 @@
   .v-btn-toggle {
     display: flex;
     justify-content: space-between;
+  }
+
+  .v-card {
+    min-width: 300px;
+    min-height: 400px;
+    border-radius: 20px;
+    margin: auto;
+    overflow: hidden;
+    padding: 32px 16px;
   }
 </style>

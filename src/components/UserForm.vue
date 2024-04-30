@@ -14,10 +14,12 @@
       <v-btn color="indigo" variant="text" @click="closeError">Close</v-btn>
     </v-snackbar>
     <v-card>
-      <v-btn icon @click="close">
-        <v-icon>mdi-close</v-icon>
-      </v-btn>
+      <v-row class="justify-center">
       <v-card-title>CADASTRO DE CLIENTE</v-card-title>
+      <v-btn icon @click="close">
+        <v-icon>mdi-close-circle-outline</v-icon>
+      </v-btn>
+      </v-row>
       <v-card-text>
         <v-form ref="form" @submit.prevent="addUser">
           <v-text-field
@@ -34,6 +36,7 @@
             placeholder="000.000.000-00"
             outlined
             required
+            :rules="cpfRules"
           ></v-text-field>
           <v-text-field
             v-model="User.email"
@@ -41,6 +44,7 @@
             placeholder="email@gmail.com"
             outlined
             required
+            :rules="emailRules"
           ></v-text-field>
           <v-text-field
             v-model="User.telefone"
@@ -48,6 +52,7 @@
             placeholder="(99) 9999-9999"
             outlined
             required
+            :rules="telefoneRules"
           ></v-text-field>
           <v-checkbox
             v-if="this.getUser.admin"
@@ -76,7 +81,10 @@
           telefone: '',
           admin: false,
         },
-        nameRules: [(v) => !!v || 'Name is required'],
+        nameRules: [(v) => !!v || 'O nome é obrigatório'],
+        cpfRules: [(v) => !!v || 'O CPF é obrigatório'],
+        emailRules: [(v) => !!v || 'O email é obrigatório'],
+        telefoneRules: [(v) => !!v || 'O telefone é obrigatório'],
         error: '',
       }
     },
