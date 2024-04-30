@@ -23,6 +23,14 @@
       "email": "aline_rodi@gmail.com",
       "telefone": "(47)34540967",
       "admin": false
+    },
+    {
+      "id": "eea0",
+      "nome": "Karin Freitas",
+      "cpf": "821.449.123.68",
+      "email": "karin_freitas@gmail.com",
+      "telefone": "(34) 3212-1234",
+      "admin": false
     }
   ],
   "Atendimentos": [
@@ -91,7 +99,7 @@
           "nome": "Instalação de Alarme e Travas Elétricas",
           "valor": 530,
           "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 0
+          "status": 1
         },
         {
           "id": "4",
@@ -99,6 +107,27 @@
           "valor": 80,
           "descricao": "Equipe especializada pronta para cuidar do seu carro",
           "status": 0
+        },
+        {
+          "id": "7",
+          "nome": "Substituição de velas de ignição",
+          "valor": 160,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 2
+        },
+        {
+          "id": "12",
+          "nome": "Instalação de rack",
+          "valor": 380,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 2
+        },
+        {
+          "id": "9",
+          "nome": "Instalação de Central Multimídia",
+          "valor": 125,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 2
         }
       ],
       "veiculo": {
@@ -108,6 +137,28 @@
         "ano": "2025"
       },
       "idUsuario": "2580",
+      "status": 0
+    },
+    {
+      "id": "6e72",
+      "data": "2024-04-30",
+      "servicos": [
+        {
+          "id": "11",
+          "status": 0
+        },
+        {
+          "id": "9",
+          "status": 0
+        }
+      ],
+      "veiculo": {
+        "modelo": "CORSA",
+        "placa": "WER-9876",
+        "cor": "ROSA",
+        "ano": "1995"
+      },
+      "idUsuario": "eda2",
       "status": 0
     }
   ],

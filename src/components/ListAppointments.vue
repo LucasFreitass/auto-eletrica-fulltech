@@ -22,6 +22,8 @@
           <v-btn outlined icon @click="reloadPage">
             <v-icon>mdi-reload</v-icon>
           </v-btn>
+          <div class="custom-space-back"></div>
+          <v-btn outlined to="/">VOLTAR</v-btn>
         </v-toolbar>
       </template>
       <template v-slot:[`item.servicos`]="{ item }">
@@ -151,6 +153,10 @@
 
   .custom-spacer {
     width: 20px;
+  }
+
+  .custom-space-back {
+    width: 800px;
   }
 
   .custom-container {
