@@ -1,6 +1,9 @@
 <template>
   <v-container class="custom-container">
-    <NewAppointmentModal v-model="showNewAppointmentModal" :currentUser="getUser" />
+    <NewAppointmentModal
+      v-model="showNewAppointmentModal"
+      :currentUser="getUser"
+    />
     <EditAppointmentModal
       v-model="showEditAppointmentModal"
       :appointment.sync="selectedAppointment"

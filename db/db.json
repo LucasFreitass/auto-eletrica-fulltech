@@ -145,11 +145,17 @@
       "servicos": [
         {
           "id": "11",
-          "status": 0
+          "nome": "Troca de bateria",
+          "valor": 230,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 2
         },
         {
           "id": "9",
-          "status": 0
+          "nome": "Instalação de Central Multimídia",
+          "valor": 125,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 2
         }
       ],
       "veiculo": {
@@ -159,7 +165,7 @@
         "ano": "1995"
       },
       "idUsuario": "eda2",
-      "status": 0
+      "status": 2
     },
     {
       "id": "6f9f",
@@ -167,7 +173,10 @@
       "servicos": [
         {
           "id": "3",
-          "status": 0
+          "nome": "Manutenção preventiva",
+          "valor": 200,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 2
         }
       ],
       "veiculo": {
@@ -177,7 +186,7 @@
         "ano": "2023"
       },
       "idUsuario": "2580",
-      "status": 0
+      "status": 2
     }
   ],
   "Servicos": [

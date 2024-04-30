@@ -1,6 +1,9 @@
 <template>
   <v-container fluid class="custom-container">
-    <NewAppointmentModal v-model="showNewAppointmentModal" :currentUser="getUser" />
+    <NewAppointmentModal
+      v-model="showNewAppointmentModal"
+      :currentUser="getUser"
+    />
     <v-btn-toggle>
       <v-btn outlined color="#05571D" @click="openNewAppointmentModal">
         <strong>SOLICITAR SERVIÇO</strong>

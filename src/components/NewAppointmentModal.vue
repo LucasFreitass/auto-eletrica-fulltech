@@ -180,8 +180,7 @@
       return this.defaultData()
     },
     mounted() {
-      this.fetchServices(),
-      this.setCpf()
+      this.fetchServices(), this.setCpf()
     },
     methods: {
       defaultData() {
@@ -252,11 +251,11 @@
         if (this.currentUser && !this.currentUser.admin) {
           this.cpf = this.currentUser.cpf
         }
-      }
+      },
     },
     props: {
       value: Boolean,
-      currentUser: Object
+      currentUser: Object,
     },
     computed: {
       show: {

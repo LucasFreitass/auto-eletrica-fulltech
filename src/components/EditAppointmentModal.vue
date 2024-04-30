@@ -92,10 +92,28 @@
     },
     methods: {
       async updatedAppointment() {
+        const allStatusZero = this.newServices.every(
+          (service) => service.status === 0
+        )
+        const allStatusTwo = this.newServices.every(
+          (service) => service.status === 2
+        )
+
+        let overallStatus
+        if (allStatusZero) {
+          overallStatus = 0
+        } else if (allStatusTwo) {
+          overallStatus = 2
+        } else {
+          overallStatus = 1
+        }
+
         const newAppointment = {
           ...this.appointment,
           servicos: this.newServices,
+          status: overallStatus,
         }
+
         const updateAppointment = await this.$store.dispatch(
           'appointments/updateAppointment',
           {
@@ -108,10 +126,7 @@
 
         if (!!updateAppointment) {
           this.show = false
-
-          // ABRIR O TOOLTIP FALANDO ATENDIMENTO ATUALIZADO COM SUCESSO!
         } else console.log('ERROR')
-        // MANTER A MODAL ABERTA E MOSTRAR TOOLTIP DE ERRO
       },
       deleteService(item) {
         this.newServices = this.newServices.filter(
