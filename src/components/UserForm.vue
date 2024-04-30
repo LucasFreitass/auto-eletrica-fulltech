@@ -15,10 +15,10 @@
     </v-snackbar>
     <v-card>
       <v-row class="justify-center">
-      <v-card-title>CADASTRO DE CLIENTE</v-card-title>
-      <v-btn icon @click="close">
-        <v-icon>mdi-close-circle-outline</v-icon>
-      </v-btn>
+        <v-card-title>CADASTRO DE CLIENTE</v-card-title>
+        <v-btn icon @click="close">
+          <v-icon>mdi-close-circle-outline</v-icon>
+        </v-btn>
       </v-row>
       <v-card-text>
         <v-form ref="form" @submit.prevent="addUser">

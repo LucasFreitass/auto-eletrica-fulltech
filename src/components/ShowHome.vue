@@ -1,8 +1,12 @@
 <template>
   <v-container fluid class="custom-container">
     <v-btn-toggle>
-      <v-btn outlined color="#05571D" to="/solicitar-serviço"><strong>SOLICITAR SERVIÇO</strong></v-btn>
-      <v-btn outlined color="#05571D" to="/appointments"><strong>LISTA DE SERVIÇOS</strong></v-btn>
+      <v-btn outlined color="#05571D" to="/solicitar-serviço">
+        <strong>SOLICITAR SERVIÇO</strong>
+      </v-btn>
+      <v-btn outlined color="#05571D" to="/appointments">
+        <strong>LISTA DE SERVIÇOS</strong>
+      </v-btn>
       <v-btn v-if="this.getUser.admin" outlined color="#05571D" to="/cadastro">
         <strong>CADASTRAR USUÁRIO</strong>
       </v-btn>

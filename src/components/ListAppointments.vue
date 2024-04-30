@@ -125,41 +125,39 @@
 </script>
 
 <style scoped>
-::v-deep .v-data-table th {
-  background-color: #757070;
-}
-::v-deep .v-data-table .v-data-table__wrapper table tr {
-  background-color: #757070;
-}
-::v-deep .v-toolbar__content {
-  background-color: #757070;
-}
-::v-deep .v-data-footer {
-  background-color: #757070;
-}
-
-.custom-table {
-  padding: 32px 16px;
-}
-
-::v-deep .custom-table .v-data-table-header,
-::v-deep .custom-table .v-data-table__wrapper table tbody tr td,
-::v-deep .custom-table .v-data-footer {
-  color: white; 
-  font-weight: bold;
-}
-
-.custom-spacer {
-  width: 20px;
-}
-
-.custom-container {
-  padding-top: 30px;
-}
-
-.theme--dark.v-data-table {
+  ::v-deep .v-data-table th {
     background-color: #757070;
-     
-}
+  }
+  ::v-deep .v-data-table .v-data-table__wrapper table tr {
+    background-color: #757070;
+  }
+  ::v-deep .v-toolbar__content {
+    background-color: #757070;
+  }
+  ::v-deep .v-data-footer {
+    background-color: #757070;
+  }
 
+  .custom-table {
+    padding: 32px 16px;
+  }
+
+  ::v-deep .custom-table .v-data-table-header,
+  ::v-deep .custom-table .v-data-table__wrapper table tbody tr td,
+  ::v-deep .custom-table .v-data-footer {
+    color: white;
+    font-weight: bold;
+  }
+
+  .custom-spacer {
+    width: 20px;
+  }
+
+  .custom-container {
+    padding-top: 30px;
+  }
+
+  .theme--dark.v-data-table {
+    background-color: #757070;
+  }
 </style>

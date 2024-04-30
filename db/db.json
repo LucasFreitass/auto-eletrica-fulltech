@@ -78,6 +78,27 @@
           "valor": 20,
           "descricao": "Troque seu pneu com maior segurança e tranquilidade",
           "status": 2
+        },
+        {
+          "id": "3",
+          "nome": "Manutenção preventiva",
+          "valor": 200,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 0
+        },
+        {
+          "id": "10",
+          "nome": "Instalação de Alarme e Travas Elétricas",
+          "valor": 530,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 0
+        },
+        {
+          "id": "4",
+          "nome": "Cambagem",
+          "valor": 80,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 0
         }
       ],
       "veiculo": {

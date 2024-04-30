@@ -1,15 +1,15 @@
 <template>
   <v-container fluid class="custom-container">
-    <v-card >
+    <v-card>
       <v-col class="justify-center">
-      <v-img src="../assets/logo.png" class="logo"></v-img>
-    </v-col>
+        <v-img src="../assets/logo.png" class="logo"></v-img>
+      </v-col>
 
-    <v-col class="justify-center">
-      <v-card-title class="text-center">
-        <span class="headline">AUTO ELÉTRICA FULLTECH</span>
-      </v-card-title>
-    </v-col>
+      <v-col class="justify-center">
+        <v-card-title class="text-center">
+          <span class="headline">AUTO ELÉTRICA FULLTECH</span>
+        </v-card-title>
+      </v-col>
       <v-card-text>
         <v-form @submit.prevent="login">
           <v-text-field
@@ -26,11 +26,10 @@
           </v-btn-toggle>
         </v-form>
         <v-col class="justify-center">
-        <v-alert v-if="errorMessage" type="error" outlined>
-          
-          {{ errorMessage }}
-        </v-alert>
-      </v-col>
+          <v-alert v-if="errorMessage" type="error" outlined>
+            {{ errorMessage }}
+          </v-alert>
+        </v-col>
       </v-card-text>
     </v-card>
   </v-container>
@@ -52,7 +51,8 @@
           if (isLogged) {
             this.$router.push('/home')
           } else {
-            this.errorMessage = 'CPF não encontrado. Por favor, crie um cadastro.'
+            this.errorMessage =
+              'CPF não encontrado. Por favor, crie um cadastro.'
           }
         } else {
           this.errorMessage = 'Digite um CPF válido'
@@ -71,7 +71,6 @@
 </script>
 
 <style scoped>
-
   .custom-spacer {
     width: 20px;
   }
@@ -89,7 +88,6 @@
     width: 70px;
     margin: auto;
     display: block;
-   
   }
 
   .text-center {

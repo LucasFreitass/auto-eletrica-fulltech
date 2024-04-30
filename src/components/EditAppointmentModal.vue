@@ -7,8 +7,32 @@
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-title>
-
-      <v-btn icon color="green">
+      <v-row v-if="showAddServiceRow" class="pt-3">
+        <v-col cols="8">
+          <v-select
+            v-model="newSelectedServices"
+            :items="servicesAllowedToAdd"
+            item-text="nome"
+            return-object
+            label="Serviços"
+            chips
+            multiple
+            outlined
+          ></v-select>
+        </v-col>
+        <v-col cols="2">
+          <v-btn color="success" @click="addNewServices">Add</v-btn>
+        </v-col>
+        <v-col cols="2">
+          <v-btn color="red" @click="showAddServiceRow = false">Cancel</v-btn>
+        </v-col>
+      </v-row>
+      <v-btn
+        v-if="!showAddServiceRow"
+        icon
+        @click="toggleControls"
+        color="green"
+      >
         <v-icon>mdi-plus</v-icon>
       </v-btn>
 
@@ -50,6 +74,8 @@
         ],
         StatusServices,
         newServices: null,
+        showAddServiceRow: false,
+        newSelectedServices: [],
       }
     },
     watch: {
@@ -80,7 +106,6 @@
           }
         )
 
-        console.log('updateAppointment', { updateAppointment })
         if (!!updateAppointment) {
           this.show = false
 
@@ -95,6 +120,19 @@
       },
       resetData() {
         this.newServices = JSON.parse(JSON.stringify(this.appointment.servicos))
+      },
+      toggleControls() {
+        this.showAddServiceRow = !this.showAddServiceRow
+      },
+      addNewServices() {
+        if (this.newSelectedServices) {
+          this.newSelectedServices = this.newSelectedServices.map((service) => {
+            return { ...service, status: StatusServices[0].id }
+          })
+          this.newServices = [...this.newServices, ...this.newSelectedServices]
+          this.newSelectedServices = []
+          this.showAddServiceRow = false
+        }
       },
     },
     props: {
@@ -112,6 +150,12 @@
             this.resetData()
           }
         },
+      },
+      servicesAllowedToAdd() {
+        return this.getServices.filter(
+          (service) =>
+            !this.newServices.some((newService) => newService.id === service.id)
+        )
       },
       ...mapGetters({
         getServices: 'services/getServices',
