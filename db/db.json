@@ -31,6 +31,22 @@
       "email": "karin_freitas@gmail.com",
       "telefone": "(34) 3212-1234",
       "admin": false
+    },
+    {
+      "id": "4a20",
+      "nome": "Kamyla",
+      "cpf": "123.123.123-10",
+      "email": "kamyla@gmail.com",
+      "telefone": "(12) 1234-3232",
+      "admin": false
+    },
+    {
+      "id": "1b64",
+      "nome": "Marcos pires",
+      "cpf": "1021232312",
+      "email": "mamsm",
+      "telefone": "221231",
+      "admin": false
     }
   ],
   "Atendimentos": [
@@ -38,13 +54,6 @@
       "id": "81d0",
       "data": "2024-04-23",
       "servicos": [
-        {
-          "id": "1",
-          "nome": "Troca do Pneu",
-          "valor": 20,
-          "descricao": "Troque seu pneu com maior segurança e tranquilidade",
-          "status": 1
-        },
         {
           "id": "3",
           "nome": "Manutenção preventiva",
@@ -65,6 +74,13 @@
           "valor": 60,
           "descricao": "Equipe especializada pronta para cuidar do seu carro",
           "status": 0
+        },
+        {
+          "id": "2",
+          "nome": "Troca de Óleo",
+          "valor": 150,
+          "descricao": "Troque o Óleo do seu carro com uma equipe especializada",
+          "status": 0
         }
       ],
       "veiculo": {
@@ -74,7 +90,7 @@
         "ano": "1996"
       },
       "idUsuario": "eda2",
-      "status": 0
+      "status": 1
     },
     {
       "id": "bf04",
@@ -176,7 +192,7 @@
           "nome": "Manutenção preventiva",
           "valor": 200,
           "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 2
+          "status": 1
         }
       ],
       "veiculo": {
@@ -186,7 +202,7 @@
         "ano": "2023"
       },
       "idUsuario": "2580",
-      "status": 2
+      "status": 1
     }
   ],
   "Servicos": [

@@ -1,18 +1,5 @@
 <template>
   <v-container fluid class="custom-container">
-    <v-snackbar
-      v-model="this.error"
-      :value="true"
-      absolute
-      top
-      right
-      color="red"
-      vertical
-    >
-      <div class="text-subtitle-1 pb-2">Usuário já cadastrado</div>
-
-      <v-btn color="indigo" variant="text" @click="closeError">Close</v-btn>
-    </v-snackbar>
     <v-card>
       <v-row class="justify-center">
         <v-card-title>CADASTRO DE CLIENTE</v-card-title>
@@ -63,6 +50,9 @@
 
           <v-btn type="submit" color="success">CADASTRAR</v-btn>
         </v-form>
+        <v-alert v-if="error" type="error" outlined>
+            {{ error }}
+          </v-alert>
       </v-card-text>
     </v-card>
   </v-container>
@@ -91,18 +81,29 @@
     methods: {
       async addUser() {
         this.error = ''
-        const isUserAdd = await this.$store.dispatch('user/addUser', this.User)
-        if (isUserAdd) {
-          this.$router.push('/')
+        if (this.$refs.form.validate()) {
+          const isUserAdd = await this.$store.dispatch(
+            'user/addUser',
+            this.User
+          )
+          if (isUserAdd) {
+            this.$router.push('/login')
+            this.$refs.form.resetValidation()
+          } else {
+            this.error = 'Usuário já existe'
+          }
         } else {
-          this.error = true
+          this.error = 'Preencha todos os campos corretamente.'
         }
       },
       closeError() {
         this.error = false
+        this.$refs.form.resetValidation()
+        
       },
       async close() {
         await this.$router.push('/')
+        this.$refs.form.resetValidation()
       },
     },
     computed: {

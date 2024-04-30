@@ -159,11 +159,19 @@
               </v-form>
             </v-card-text>
 
-            <v-btn text @click="step = 1">VOLTAR</v-btn>
-
-            <v-btn @click="saveAppointment" color="success">
+            <v-row class="custom-save-row">
+        <v-col cols="2">
+          <v-btn @click="step = 1">VOLTAR</v-btn>
+        </v-col>
+        <v-col cols="2">
+          <v-btn @click="saveAppointment" color="success">
               CRIAR ORDEM DE SERVIÇO
             </v-btn>
+        </v-col>
+      </v-row>  
+
+            
+           
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>
@@ -239,10 +247,7 @@
             userId: this.user.id,
           })
           this.show = false
-
-          // ABRIR O TOOLTIP FALANDO ATENDIMENTO CADASTRADO COM SUCESSO!
         } else console.log('ERROR')
-        // MANTER A MODAL ABERTA E MOSTRAR TOOLTIP DE ERRO
       },
       resetData() {
         Object.assign(this.$data, this.defaultData())

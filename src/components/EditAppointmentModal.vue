@@ -8,23 +8,25 @@
         </v-btn>
       </v-card-title>
       <v-row v-if="showAddServiceRow" class="pt-3">
-        <v-col cols="8">
+        <v-col>
           <v-select
             v-model="newSelectedServices"
             :items="servicesAllowedToAdd"
             item-text="nome"
             return-object
-            label="Serviços"
+            label="Adicionar Serviços"
             chips
             multiple
             outlined
           ></v-select>
         </v-col>
+      </v-row>
+        <v-row v-if="showAddServiceRow" class="custom-row">
         <v-col cols="2">
-          <v-btn color="success" @click="addNewServices">Add</v-btn>
+          <v-btn @click="showAddServiceRow = false">CANCELAR</v-btn>
         </v-col>
         <v-col cols="2">
-          <v-btn color="red" @click="showAddServiceRow = false">Cancel</v-btn>
+          <v-btn color="success" @click="addNewServices">ADICIONAR</v-btn>
         </v-col>
       </v-row>
       <v-btn
@@ -32,8 +34,11 @@
         icon
         @click="toggleControls"
         color="green"
+        class="btn-add"
+        
       >
-        <v-icon>mdi-plus</v-icon>
+        <v-icon left>mdi-plus-circle</v-icon>
+        Novo serviço
       </v-btn>
 
       <v-data-table :headers="headers" :items="newServices" hide-default-footer>
@@ -53,9 +58,14 @@
         </template>
       </v-data-table>
 
-      <v-btn text @click.stop="show = false">CANCELAR</v-btn>
-
-      <v-btn @click="updatedAppointment" color="success">SALVAR</v-btn>
+      <v-row class="custom-save-row">
+        <v-col cols="2">
+          <v-btn @click.stop="show = false">CANCELAR</v-btn>
+        </v-col>
+        <v-col cols="2">
+          <v-btn @click="updatedAppointment" color="success">SALVAR</v-btn>
+        </v-col>
+      </v-row>      
     </v-card>
   </v-dialog>
 </template>
@@ -179,3 +189,31 @@
     },
   }
 </script>
+
+<style scoped>
+.v-application .v-dialog {
+  max-width: 800px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.v-application .v-card {
+  background-color: white;
+  padding: 16px;
+}
+
+.btn-add {
+  margin: 28px 16px;
+  width: 160px;
+}
+
+.custom-row {
+  margin-bottom: 16px;
+  margin-top: -24px;
+}
+
+.custom-save-row {
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+</style>
+
