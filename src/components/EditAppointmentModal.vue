@@ -21,7 +21,7 @@
           ></v-select>
         </v-col>
       </v-row>
-        <v-row v-if="showAddServiceRow" class="custom-row">
+      <v-row v-if="showAddServiceRow" class="custom-row">
         <v-col cols="2">
           <v-btn @click="showAddServiceRow = false">CANCELAR</v-btn>
         </v-col>
@@ -35,7 +35,6 @@
         @click="toggleControls"
         color="green"
         class="btn-add"
-        
       >
         <v-icon left>mdi-plus-circle</v-icon>
         Novo serviço
@@ -65,7 +64,7 @@
         <v-col cols="2">
           <v-btn @click="updatedAppointment" color="success">SALVAR</v-btn>
         </v-col>
-      </v-row>      
+      </v-row>
     </v-card>
   </v-dialog>
 </template>
@@ -191,29 +190,28 @@
 </script>
 
 <style scoped>
-.v-application .v-dialog {
-  max-width: 800px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+  .v-application .v-dialog {
+    max-width: 800px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
 
-.v-application .v-card {
-  background-color: white;
-  padding: 16px;
-}
+  .v-application .v-card {
+    background-color: white;
+    padding: 16px;
+  }
 
-.btn-add {
-  margin: 28px 16px;
-  width: 160px;
-}
+  .btn-add {
+    margin: 28px 16px;
+    width: 160px;
+  }
 
-.custom-row {
-  margin-bottom: 16px;
-  margin-top: -24px;
-}
+  .custom-row {
+    margin-bottom: 16px;
+    margin-top: -24px;
+  }
 
-.custom-save-row {
-  margin-bottom: 16px;
-  margin-top: 8px;
-}
+  .custom-save-row {
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
 </style>
-

@@ -184,25 +184,22 @@
       "status": 2
     },
     {
-      "id": "6f9f",
-      "data": "2024-04-02",
+      "id": "9d03",
+      "data": "2024-05-10",
       "servicos": [
         {
-          "id": "3",
-          "nome": "Manutenção preventiva",
-          "valor": 200,
-          "descricao": "Equipe especializada pronta para cuidar do seu carro",
-          "status": 1
+          "id": "7",
+          "status": 0
         }
       ],
       "veiculo": {
-        "modelo": "ALALA",
-        "placa": "AAA",
-        "cor": "AAA",
-        "ano": "2023"
+        "modelo": "CAMARO",
+        "placa": "CAR-0662",
+        "cor": "AMARELO",
+        "ano": "2014"
       },
       "idUsuario": "2580",
-      "status": 1
+      "status": 0
     }
   ],
   "Servicos": [

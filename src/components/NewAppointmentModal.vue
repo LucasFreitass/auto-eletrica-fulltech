@@ -47,7 +47,7 @@
             <v-card-text>
               <v-form ref="form">
                 <v-row>
-                  <v-col cols="12" md="4" sm="6">
+                  <v-col md="8" sm="12">
                     <v-text-field
                       v-model="veiculo.modelo"
                       label="Modelo do Veículo"
@@ -56,7 +56,18 @@
                       required
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12" md="4" sm="6">
+                  <v-col md="4" sm="6">
+                    <v-text-field
+                      v-model="veiculo.cor"
+                      label="Cor do Veículo"
+                      placeholder="BRANCO"
+                      outlined
+                      required
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-col md="8" sm="12">
                     <v-text-field
                       v-model="veiculo.placa"
                       label="Placa do Veículo"
@@ -65,28 +76,7 @@
                       required
                     ></v-text-field>
                   </v-col>
-                  <v-col cols="12" md="4" sm="6">
-                    <v-text-field
-                      v-model="veiculo.cor"
-                      label="Cor do veículo"
-                      placeholder="BRANCO"
-                      outlined
-                      required
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" md="4" sm="6">
-                    <v-select
-                      v-model="atendimento.servicos"
-                      :items="services"
-                      item-text="nome"
-                      item-value="id"
-                      label="Serviços"
-                      chips
-                      multiple
-                      outlined
-                    ></v-select>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
+                  <v-col md="4" sm="6">
                     <v-menu
                       ref="menuYear"
                       :close-on-content-click="true"
@@ -116,7 +106,22 @@
                       ></v-date-picker>
                     </v-menu>
                   </v-col>
-                  <v-col cols="12" md="4" sm="6">
+                </v-row>
+                <v-row>
+                  <v-col md="8" sm="12">
+                    <v-select
+                      v-model="atendimento.servicos"
+                      :items="services"
+                      item-text="nome"
+                      item-value="id"
+                      label="Serviços"
+                      chips
+                      multiple
+                      outlined
+                    ></v-select>
+                  </v-col>
+
+                  <v-col md="4" sm="6">
                     <v-menu
                       ref="menu"
                       v-model="menu"
@@ -160,18 +165,15 @@
             </v-card-text>
 
             <v-row class="custom-save-row">
-        <v-col cols="2">
-          <v-btn @click="step = 1">VOLTAR</v-btn>
-        </v-col>
-        <v-col cols="2">
-          <v-btn @click="saveAppointment" color="success">
-              CRIAR ORDEM DE SERVIÇO
-            </v-btn>
-        </v-col>
-      </v-row>  
-
-            
-           
+              <v-col cols="2">
+                <v-btn @click="step = 1">VOLTAR</v-btn>
+              </v-col>
+              <v-col cols="2">
+                <v-btn @click="saveAppointment" color="success">
+                  CRIAR ORDEM DE SERVIÇO
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-stepper-content>
         </v-stepper-items>
       </v-stepper>

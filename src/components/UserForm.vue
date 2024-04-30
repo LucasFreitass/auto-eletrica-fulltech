@@ -51,8 +51,8 @@
           <v-btn type="submit" color="success">CADASTRAR</v-btn>
         </v-form>
         <v-alert v-if="error" type="error" outlined>
-            {{ error }}
-          </v-alert>
+          {{ error }}
+        </v-alert>
       </v-card-text>
     </v-card>
   </v-container>
@@ -99,7 +99,6 @@
       closeError() {
         this.error = false
         this.$refs.form.resetValidation()
-        
       },
       async close() {
         await this.$router.push('/')
