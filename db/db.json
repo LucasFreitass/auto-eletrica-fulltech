@@ -27,53 +27,35 @@
   ],
   "Atendimentos": [
     {
-      "id": "1bb6",
-      "data": "2024-04-02",
-      "servicos": [
-        {
-          "id": "2",
-          "status": 0
-        },
-        {
-          "id": "4",
-          "status": 1
-        },
-        {
-          "id": "6",
-          "status": 2
-        }
-      ],
-      "veiculo": {
-        "modelo": "BBB",
-        "placa": "BBB",
-        "cor": "BBB",
-        "ano": "2020"
-      },
-      "idUsuario": "eda2",
-      "status": 1
-    },
-    {
       "id": "81d0",
       "data": "2024-04-23",
       "servicos": [
         {
           "id": "1",
-          "status": 2
-        },
-        {
-          "id": "2",
-          "status": 0
+          "nome": "Troca do Pneu",
+          "valor": 20,
+          "descricao": "Troque seu pneu com maior segurança e tranquilidade",
+          "status": 1
         },
         {
           "id": "3",
-          "status": 0
+          "nome": "Manutenção preventiva",
+          "valor": 200,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
+          "status": 2
         },
         {
           "id": "4",
+          "nome": "Cambagem",
+          "valor": 80,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
           "status": 0
         },
         {
           "id": "5",
+          "nome": "Balanceamento",
+          "valor": 60,
+          "descricao": "Equipe especializada pronta para cuidar do seu carro",
           "status": 0
         }
       ],
@@ -92,7 +74,10 @@
       "servicos": [
         {
           "id": "1",
-          "status": 0
+          "nome": "Troca do Pneu",
+          "valor": 20,
+          "descricao": "Troque seu pneu com maior segurança e tranquilidade",
+          "status": 2
         }
       ],
       "veiculo": {

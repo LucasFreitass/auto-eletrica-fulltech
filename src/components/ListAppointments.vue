@@ -1,6 +1,10 @@
 <template>
   <v-container>
     <NewAppointmentModal v-model="showNewAppointmentModal" />
+    <EditAppointmentModal
+      v-model="showEditAppointmentModal"
+      :appointment.sync="selectedAppointment"
+    />
     <v-data-table
       :headers="headers"
       :items="getAppointments"
@@ -9,7 +13,7 @@
     >
       <template v-slot:top>
         <v-toolbar flat>
-          <v-btn icon color="green" @click="openModal">
+          <v-btn icon color="green" @click="openNewAppointmentModal">
             <v-icon>mdi-plus</v-icon>
           </v-btn>
 
@@ -26,8 +30,8 @@
         >
           <span>
             {{ service.nome }}
-            <v-icon :color="statusServices[service.status].color">
-              {{ statusServices[service.status].name }}
+            <v-icon :color="statusServicesIcons[service.status].color">
+              {{ statusServicesIcons[service.status].name }}
             </v-icon>
           </span>
         </div>
@@ -47,18 +51,22 @@
 <script>
   import { mapGetters } from 'vuex'
   import NewAppointmentModal from './NewAppointmentModal'
-  import { statusAppointment, statusServices } from '../constants/constant'
+  import EditAppointmentModal from './EditAppointmentModal'
+  import { statusAppointment, statusServicesIcons } from '../constants/constant'
 
   export default {
     data() {
       return {
         headers: [],
         showNewAppointmentModal: false,
-        statusServices,
+        showEditAppointmentModal: false,
+        statusServicesIcons,
+        selectedAppointment: {},
       }
     },
     components: {
       NewAppointmentModal,
+      EditAppointmentModal,
     },
     mounted() {
       this.headers = [
@@ -83,8 +91,8 @@
         return statusAppointment[status]
       },
       editAppointment(item) {
-        // Add edit page route
-        console.log('Edit item:', item)
+        this.selectedAppointment = item
+        this.showEditAppointmentModal = true
       },
       deleteAppointment(appointment) {
         this.$store.dispatch('appointments/deleteAppointment', {
@@ -93,8 +101,11 @@
           userId: this.getUser.id,
         })
       },
-      openModal() {
+      openNewAppointmentModal() {
         this.showNewAppointmentModal = true
+      },
+      openEditAppointmentModal() {
+        this.showEditAppointmentModal = true
       },
       reloadPage() {
         window.location.reload()

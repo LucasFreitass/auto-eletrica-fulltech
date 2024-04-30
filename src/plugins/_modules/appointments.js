@@ -54,14 +54,20 @@ const actions = {
   },
   async updateAppointment(
     { dispatch },
-    { appointmentId, isAdmin, userId, newData }
+    { appointmentData, appointmentId, isAdmin, userId }
   ) {
     if (!isAdmin) {
       return
     }
+    try {
+      const result = await api.Atendimento.Put(appointmentId, appointmentData)
 
-    await api.Atendimento.Patch(appointmentId, newData)
-    await dispatch('fetchAppointments', { isAdmin, userId })
+      await dispatch('fetchAppointments', { isAdmin, userId })
+
+      return result
+    } catch (error) {
+      console.log('There was an error:', error)
+    }
   },
   async createAppointment({ dispatch }, { atendimento, veiculo, user }) {
     atendimento.servicos = atendimento.servicos.map((id) => ({ id, status: 0 }))
